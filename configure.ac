@@ -30,7 +30,7 @@ PKG_CHECK_MODULES(APPLICATIONS,
                   gio-unix-2.0
                   gtk+-2.0
                   libgnome-menu
-                  nbtk-1.0)
+                  nbtk-1.2)
 
 AC_ARG_ENABLE([cache],
               [AC_HELP_STRING([--enable-cache],
