@@ -1,5 +1,7 @@
 AC_PREREQ(2.53)
 AC_INIT(moblin-panel-applications, 0.1.0)
+AC_CONFIG_AUX_DIR([build])
+AC_CONFIG_MACRO_DIR([build])
 AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
 AM_CONFIG_HEADER(config.h)
 
@@ -20,6 +22,8 @@ AC_PROG_LIBTOOL
 AC_ISC_POSIX
 AC_HEADER_STDC
 AM_PROG_CC_C_O
+
+AS_ALL_LINGUAS
 
 CFLAGS="$CFLAGS -Wall"
 
@@ -49,6 +53,7 @@ AM_CONDITIONAL([ENABLE_CACHE],   [test "x$enable_cache" = "xyes"])
 
 AC_OUTPUT([
         Makefile
+        build/Makefile
         src/Makefile
         data/Makefile
         data/theme/Makefile
