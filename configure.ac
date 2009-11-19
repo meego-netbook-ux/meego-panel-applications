@@ -27,7 +27,7 @@ AS_ALL_LINGUAS
 
 CFLAGS="$CFLAGS -Wall"
 
-PKG_CHECK_MODULES(MPL, moblin-panel)
+PKG_CHECK_MODULES(MPL, moblin-panel >= 0.43.6)
 PKG_CHECK_MODULES(APPLICATIONS,
                   clutter-x11-1.0
                   gdk-x11-2.0
