@@ -1,5 +1,5 @@
 AC_PREREQ(2.53)
-AC_INIT(moblin-panel-applications, 0.1.3)
+AC_INIT(moblin-panel-applications, 0.1.2)
 AC_CONFIG_AUX_DIR([build])
 AC_CONFIG_MACRO_DIR([build])
 AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
@@ -27,7 +27,7 @@ AS_ALL_LINGUAS
 
 CFLAGS="$CFLAGS -Wall"
 
-PKG_CHECK_MODULES(MPL, moblin-panel >= 0.43.6)
+PKG_CHECK_MODULES(MPL, moblin-panel >= 0.43.5)
 PKG_CHECK_MODULES(APPLICATIONS,
                   clutter-x11-1.0
                   gdk-x11-2.0
