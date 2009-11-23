@@ -13,7 +13,7 @@ EXTRA_DIST = \
 
 dist-hook:
 	prev=`$(top_srcdir)/build/git-log-extract-news.sh $(VERSION) 2>&1 > NEWS.new` && \
-	`grep -A 1000000 '^$$prev' NEWS > NEWS.old` && \
+	grep -A 1000000 '^$$prev' NEWS > NEWS.old && \
 	cat NEWS.old NEWS.new > NEWS && \
 	rm -f NEWS.old NEWS.new
 
