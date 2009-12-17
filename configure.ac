@@ -27,7 +27,11 @@ AS_ALL_LINGUAS
 
 CFLAGS="$CFLAGS -Wall"
 
-PKG_CHECK_MODULES(MPL, moblin-panel >= 0.43.5)
+PKG_CHECK_MODULES(MPL, moblin-panel >= 0.50.0)
+
+MOBLIN_PANELS_DIR=`$PKG_CONFIG --variable=moblin_panel_panels_dir moblin-panel`
+AC_SUBST(MOBLIN_PANELS_DIR)
+
 PKG_CHECK_MODULES(APPLICATIONS,
                   clutter-x11-1.0
                   gdk-x11-2.0
@@ -50,6 +54,14 @@ AS_IF([test "x$enable_cache" = "xyes"],
 ])
 
 AM_CONDITIONAL([ENABLE_CACHE],   [test "x$enable_cache" = "xyes"])
+
+AC_ARG_ENABLE([moblin-desktop-file],
+              [AC_HELP_STRING([--disable-moblin-desktop-file],
+                              [Disable installation of moblin desktop file])],
+              [enable_mdesktop=$enableval],
+              [enable_mdesktop=yes])
+
+AM_CONDITIONAL([ENABLE_MOBLIN_DESKTOP_FILE], [test "x$enable_mdesktop" = "xyes"])
 
 AC_OUTPUT([
         Makefile

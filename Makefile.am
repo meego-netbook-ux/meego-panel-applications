@@ -3,6 +3,8 @@ ACLOCAL_AMFLAGS = -I build
 
 SUBDIRS = build src tests data po
 
+DISTCHECK_CONFIGURE_FLAGS=--disable-moblin-desktop-file
+
 EXTRA_DIST = \
 	AUTHORS \
 	autogen.sh \
