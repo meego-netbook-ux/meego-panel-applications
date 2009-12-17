@@ -38,19 +38,19 @@ PKG_CHECK_MODULES(APPLICATIONS,
                   gio-unix-2.0
                   gtk+-2.0
                   libgnome-menu
-                  nbtk-1.2)
+                  mx-1.0)
 
 AC_ARG_ENABLE([cache],
               [AC_HELP_STRING([--enable-cache],
-                              [Enable Nbtk image cache generation])],
+                              [Enable Mx image cache generation])],
               [],
               [enable_cache=no])
 
 AS_IF([test "x$enable_cache" = "xyes"],
       [
-      AC_CHECK_PROG([NBTK_CREATE_IMAGE_CACHE],
-                [nbtk-create-image-cache],
-                [$(which nbtk-create-image-cache)])
+      AC_CHECK_PROG([MX_CREATE_IMAGE_CACHE],
+                [mx-create-image-cache],
+                [$(which mx-create-image-cache)])
 ])
 
 AM_CONDITIONAL([ENABLE_CACHE],   [test "x$enable_cache" = "xyes"])
