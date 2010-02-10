@@ -3,12 +3,11 @@ ACLOCAL_AMFLAGS = -I build
 
 SUBDIRS = build src tests data po
 
-DISTCHECK_CONFIGURE_FLAGS=--disable-moblin-desktop-file
+DISTCHECK_CONFIGURE_FLAGS = --disable-moblin-desktop-file
 
 EXTRA_DIST = \
 	AUTHORS \
 	autogen.sh \
-	ChangeLog \
 	COPYING \
 	NEWS \
 	README
@@ -27,9 +26,4 @@ dist-local:
 	test -f NEWS.new && cat NEWS.new > NEWS; \
 	test -f NEWS.old && cat NEWS.old >> NEWS; \
 	rm -f NEWS.old NEWS.new
-
-# Only need to re-create changelog after version bump.
-ChangeLog: configure.ac
-	@echo Creating ChangeLog ...
-	$(top_srcdir)/build/gen-changelog.pl > $@
 
