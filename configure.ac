@@ -1,3 +1,4 @@
+
 AC_PREREQ(2.53)
 AC_INIT(moblin-panel-applications, 0.1.8)
 AC_CONFIG_AUX_DIR([build])
