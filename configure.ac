@@ -1,6 +1,6 @@
 
 AC_PREREQ(2.53)
-AC_INIT(moblin-panel-applications, 0.1.13)
+AC_INIT(moblin-panel-applications, 0.1.14)
 AC_CONFIG_AUX_DIR([build])
 AC_CONFIG_MACRO_DIR([build])
 AM_INIT_AUTOMAKE([1.10 foreign -Wno-portability no-define])
@@ -40,7 +40,7 @@ PKG_CHECK_MODULES(APPLICATIONS,
                   gio-unix-2.0
                   gtk+-2.0
                   libgnome-menu
-                  mx-1.0)
+                  mx-1.0 >= 0.8.0)
 
 AC_ARG_ENABLE([cache],
               [AC_HELP_STRING([--enable-cache],
