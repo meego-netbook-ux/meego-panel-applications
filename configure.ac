@@ -29,7 +29,7 @@ AS_ALL_LINGUAS
 
 CFLAGS="$CFLAGS -Wall"
 
-PKG_CHECK_MODULES(MPL, moblin-panel >= 0.50.0)
+PKG_CHECK_MODULES(MPL, moblin-panel >= 0.75.1)
 
 MOBLIN_PANELS_DIR=`$PKG_CONFIG --variable=moblin_panel_panels_dir moblin-panel`
 AC_SUBST(MOBLIN_PANELS_DIR)
