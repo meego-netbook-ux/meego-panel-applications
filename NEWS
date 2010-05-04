@@ -1,4 +1,9 @@
 
+Version 0.1.26, 2010-05-04
+
+- Fixes: http://bugs.meego.com/show_bug.cgi?id=1582
+- l10n: Updates to zh_CN, gl
+
 Version 0.1.25, 2010-04-29
 
 - Fixes: http://bugs.meego.com/show_bug.cgi?id=1141
