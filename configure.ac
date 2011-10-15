@@ -39,7 +39,7 @@ PKG_CHECK_MODULES(APPLICATIONS,
                   gio-unix-2.0
                   gtk+-2.0
                   libgnome-menu
-                  mx-1.0 >= 0.99.0)
+                  mx-1.0 >= 1.4.0)
 
 AC_ARG_ENABLE([cache],
               [AC_HELP_STRING([--enable-cache],
