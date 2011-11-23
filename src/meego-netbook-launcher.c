@@ -79,7 +79,10 @@ enum
 {
   PROP_0,
 
-  PROP_SHOW_EXPANDERS
+  PROP_SHOW_EXPANDERS,
+  PROP_SHOW_EXPANDERS_IN_BCM,
+
+  PROP_LAST
 };
 
 enum
@@ -109,6 +112,8 @@ struct MnbLauncherPrivate_
   MxExpander              *first_expander;
   GSList                  *launchers;
   gboolean                 show_expanders;
+  /* Show exapnders in Big Screen Mode */
+  gboolean                 show_expanders_in_bcm;
   guint                   fav_grid_items;
 
   /* Static widgets, managed by clutter. */
@@ -470,10 +475,9 @@ _launcher_gconf_key_changed_cb (GConfClient *client,
           return;
         }
 
-      priv->show_expanders = gconf_value_get_bool (value);
-
-      mnb_launcher_reset (launcher);
-      mnb_launcher_fill (launcher);
+      priv->show_expanders_in_bcm = gconf_value_get_bool (value);
+      g_object_notify (G_OBJECT (launcher),
+                       "show-expanders-in-bcm");
 
       return;
     }
@@ -508,9 +512,9 @@ mnb_launcher_setup_gconf (MnbLauncher *launcher)
                            NULL,
                            &error);
 
-  priv->show_expanders = gconf_client_get_bool (priv->gconf_client,
-                                                KEY_SHOW_EXPANDERS,
-                                                NULL);
+  priv->show_expanders_in_bcm = gconf_client_get_bool (priv->gconf_client,
+                                                       KEY_SHOW_EXPANDERS,
+                                                       NULL);
 }
 
 static gboolean
@@ -1305,6 +1309,11 @@ _get_property (GObject    *object,
                              mnb_launcher_get_show_expanders (
                                 MNB_LAUNCHER (object)));
         break;
+      case PROP_SHOW_EXPANDERS_IN_BCM:
+        g_value_set_boolean (value,
+                             mnb_launcher_get_show_expanders_in_bcm (
+                                MNB_LAUNCHER (object)));
+        break;
       default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
         break;
@@ -1352,6 +1361,18 @@ mnb_launcher_class_init (MnbLauncherClass *klass)
                                                          TRUE,
                                                          G_PARAM_READWRITE |
                                                          G_PARAM_CONSTRUCT));
+
+
+  g_object_class_install_property (object_class,
+                                   PROP_SHOW_EXPANDERS_IN_BCM,
+                                   g_param_spec_boolean ("show-expanders-in-bcm",
+                                                         "Show expanders in"
+                                                         "big screen mode",
+                                                         "Whether to show expanders"
+                                                         " in big screen mode",
+                                                         FALSE,
+                                                         G_PARAM_READABLE));
+                                                         //G_PARAM_CONSTRUCT));
 
   /* Signals */
 
@@ -1435,4 +1456,14 @@ mnb_launcher_set_show_expanders (MnbLauncher *self,
         }
       g_object_notify (G_OBJECT (self), "show-expanders");
     }
+}
+
+gboolean
+mnb_launcher_get_show_expanders_in_bcm (MnbLauncher *self)
+{
+  MnbLauncherPrivate *priv = GET_PRIVATE (self);
+
+  g_return_val_if_fail (MNB_IS_LAUNCHER (self), FALSE);
+
+  return priv->show_expanders_in_bcm;
 }
