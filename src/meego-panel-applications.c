@@ -46,8 +46,11 @@ stage_width_notify_cb (ClutterActor  *stage,
 
   if (width > 1024)
     {
+      gboolean expander_config;
+      expander_config = mnb_launcher_get_show_expanders (launcher);
+
       /* Big-screen mode. */
-      mnb_launcher_set_show_expanders (launcher, FALSE);
+      mnb_launcher_set_show_expanders (launcher, expander_config);
     }
   else
     {
@@ -76,8 +79,10 @@ panel_set_size_cb (MplPanelClient *panel,
 
   if (width > 1024)
     {
+      gboolean expander_config;
+      expander_config = mnb_launcher_get_show_expanders (launcher);
       /* Big-screen mode. */
-      mnb_launcher_set_show_expanders (launcher, FALSE);
+      mnb_launcher_set_show_expanders (launcher, expander_config);
     }
   else
     {

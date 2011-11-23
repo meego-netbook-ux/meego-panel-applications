@@ -28,10 +28,38 @@ AS_ALL_LINGUAS
 
 CFLAGS="$CFLAGS -Wall"
 
+# control center capplet
+AC_ARG_ENABLE([capplet],
+              [AC_HELP_STRING([--disable-capplet],
+                              [Disable control center capplet])],
+              [],
+              [enable_capplet=yes])
+
+if test "$enable_capplet" != "no"; then
+  PKG_CHECK_MODULES(CAPPLET,
+                    gconf-2.0
+                    gtk+-2.0 >= 2.14
+                    mx-gtk-1.0
+                    gmodule-export-2.0
+                    libgnome-control-center-extension
+                    clutter-gtk-0.12)
+
+  EXTENSIONDIR=$($PKG_CONFIG libgnome-control-center-extension --variable=extensiondir)
+  AC_SUBST(EXTENSIONDIR)
+fi
+AM_CONDITIONAL([HAVE_CAPPLET], [test "$enable_capplet" != "no"])
+
 PKG_CHECK_MODULES(MPL, meego-panel >= 0.76.3)
 
 MEEGO_PANELS_DIR=`$PKG_CONFIG --variable=meego_panel_panels_dir meego-panel`
 AC_SUBST(MEEGO_PANELS_DIR)
+
+AC_PATH_PROG(GCONFTOOL, gconftool-2, no)
+if test x"$GCONFTOOL" = xno; then
+	AC_MSG_ERROR([gconftool-2 not found])
+fi
+
+AM_GCONF_SOURCE_2
 
 PKG_CHECK_MODULES(APPLICATIONS,
                   clutter-x11-1.0
@@ -39,7 +67,8 @@ PKG_CHECK_MODULES(APPLICATIONS,
                   gio-unix-2.0
                   gtk+-2.0
                   libgnome-menu
-                  mx-1.0 >= 1.4.0)
+                  mx-1.0 >= 1.4.0
+                  gconf-2.0)
 
 AC_ARG_ENABLE([cache],
               [AC_HELP_STRING([--enable-cache],
@@ -67,6 +96,9 @@ AM_CONDITIONAL([ENABLE_MEEGO_DESKTOP_FILE], [test "x$enable_mdesktop" = "xyes"])
 AC_OUTPUT([
         Makefile
         build/Makefile
+        capplet/Makefile
+        capplet/data/Makefile
+        capplet/src/Makefile
         src/Makefile
         data/Makefile
         data/theme/Makefile

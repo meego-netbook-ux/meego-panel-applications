@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<gconfschemafile>
+  <schemalist>
+    <schema>
+      <key>/schemas/desktop/meego/panel-applications/show_expanders</key>
+      <applyto>/desktop/meego/panel-applications/show_expanders</applyto>
+      <owner>meego-panel-applications</owner>
+      <type>bool</type>
+      <default>true</default>
+      <locale name="C">
+        <short>Enable/disable expander view mode on panel applications</short>
+        <long>Enable/disable expander view mode on panel applications</long>
+      </locale>
+    </schema>
+  </schemalist>
+</gconfschemafile>

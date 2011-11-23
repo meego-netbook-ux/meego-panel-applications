@@ -29,6 +29,7 @@
 
 #include <glib/gi18n.h>
 #include <gio/gdesktopappinfo.h>
+#include <gconf/gconf-client.h>
 
 #include <gtk/gtk.h>
 #include <mx/mx.h>
@@ -70,6 +71,9 @@
   #define GET_PRIVATE(obj) \
           REAL_GET_PRIVATE(obj)
 #endif /* G_DISABLE_CHECKS */
+
+#define KEY_DIR "/desktop/meego/panel-applications"
+#define KEY_SHOW_EXPANDERS KEY_DIR "/show_expanders"
 
 enum
 {
@@ -128,10 +132,14 @@ struct MnbLauncherPrivate_
   MnbLauncherTree         *tree;
   GList                   *directories;
   GList const             *directory_iter;
+
+  /* GConf client. */
+  GConfClient             *gconf_client;
 };
 
 static void mnb_launcher_monitor_cb        (MnbLauncherMonitor *monitor,
                                              MnbLauncher        *self);
+static void mnb_launcher_fill (MnbLauncher  *self);
 
 static gboolean
 launcher_button_set_reactive_cb (ClutterActor *launcher)
@@ -426,6 +434,83 @@ _launches_changed_cb (MplAppLaunchesStore *store,
                       MnbLauncher         *self)
 {
   mnb_launcher_update_last_launched (self);
+}
+
+static void
+_launcher_gconf_key_changed_cb (GConfClient *client,
+                                guint cnxn_id,
+                                GConfEntry *entry,
+                                gpointer data)
+{
+  MnbLauncher *launcher = MNB_LAUNCHER (data);
+  MnbLauncherPrivate *priv = launcher->priv;
+  const gchar *key;
+  GConfValue *value;
+
+  key = gconf_entry_get_key (entry);
+  if (!key)
+    {
+      g_warning (G_STRLOC ": no key!");
+      return;
+    }
+
+  value = gconf_entry_get_value (entry);
+  if (!value)
+    {
+      g_warning (G_STRLOC ": no value!");
+      return;
+    }
+
+  if (!strcmp (key, KEY_SHOW_EXPANDERS))
+    {
+      if (value->type != GCONF_VALUE_BOOL)
+        {
+          g_warning (G_STRLOC ": %s does not contain a bool!",
+                     KEY_SHOW_EXPANDERS);
+          return;
+        }
+
+      priv->show_expanders = gconf_value_get_bool (value);
+
+      mnb_launcher_reset (launcher);
+      mnb_launcher_fill (launcher);
+
+      return;
+    }
+
+  g_warning (G_STRLOC ": Unknown key %s", key);
+}
+
+static void
+mnb_launcher_setup_gconf (MnbLauncher *launcher)
+{
+  MnbLauncherPrivate *priv = launcher->priv;
+  GError *error  = NULL;
+
+  priv->gconf_client = gconf_client_get_default ();
+
+  gconf_client_add_dir (priv->gconf_client,
+                        KEY_DIR,
+                        GCONF_CLIENT_PRELOAD_NONE,
+                        &error);
+
+  if (error)
+    {
+      g_warning (G_STRLOC ": Error when adding directory for notification: %s",
+                 error->message);
+      g_clear_error (&error);
+    }
+
+  gconf_client_notify_add (priv->gconf_client,
+                           KEY_DIR,
+                           _launcher_gconf_key_changed_cb,
+                           launcher,
+                           NULL,
+                           &error);
+
+  priv->show_expanders = gconf_client_get_bool (priv->gconf_client,
+                                                KEY_SHOW_EXPANDERS,
+                                                NULL);
 }
 
 static gboolean
@@ -916,6 +1001,16 @@ _dispose (GObject *object)
   G_OBJECT_CLASS (mnb_launcher_parent_class)->dispose (object);
 }
 
+static void
+_finalize (GObject *object)
+{
+  MnbLauncherPrivate *priv = GET_PRIVATE (object);
+
+  g_object_unref (priv->gconf_client);
+
+  G_OBJECT_CLASS (mnb_launcher_parent_class)->finalize (object);
+}
+
 typedef struct {
   MnbLauncher     *self;
   ClutterActorBox  box;
@@ -1186,6 +1281,8 @@ _constructor (GType                  gtype,
   g_signal_connect (priv->app_launches, "changed",
                     G_CALLBACK (_launches_changed_cb), self);
 
+  mnb_launcher_setup_gconf (self);
+
   mnb_launcher_fill (self);
 
   /* Hook up search. */
@@ -1241,6 +1338,7 @@ mnb_launcher_class_init (MnbLauncherClass *klass)
 
   object_class->constructor = _constructor;
   object_class->dispose = _dispose;
+  object_class->finalize = _finalize;
   object_class->set_property = _set_property;
   object_class->get_property = _get_property;
 
@@ -1303,7 +1401,7 @@ mnb_launcher_clear_filter (MnbLauncher *self)
   mx_adjustment_set_value (adjust, 0.0);
 
   /* Expand default expander. */
-  if (priv->default_expander)
+  if ((priv->show_expanders) && (priv->default_expander))
     {
       mx_expander_set_expanded (priv->default_expander, TRUE);
     }
@@ -1338,4 +1436,3 @@ mnb_launcher_set_show_expanders (MnbLauncher *self,
       g_object_notify (G_OBJECT (self), "show-expanders");
     }
 }
-

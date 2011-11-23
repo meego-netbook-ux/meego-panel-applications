@@ -47,8 +47,17 @@ msgid "Never launched"
 msgstr "Nunca iniciado"
 
 #: ../data/meego-panel-applications.desktop.in.in.h:1
+#: ../capplet/src/app-cc-panel.c:151
 msgid "Applications panel"
 msgstr "Painel de aplicativos"
+
+#: ../capplet/src/app-cc-panel.c:83
+msgid "Use expanders"
+msgstr "Utilizar expansores"
+
+#: ../capplet/src/app-cc-panel.c:109
+msgid "Enable/disable expanders in applications panel"
+msgstr "Habilita/desabilita expansores no painel de aplicativos"
 
 #~ msgid "Search for applications"
 #~ msgstr "Pesquisar por aplicativos"
