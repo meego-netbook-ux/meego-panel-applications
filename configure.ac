@@ -30,24 +30,25 @@ CFLAGS="$CFLAGS -Wall"
 
 # control center capplet
 AC_ARG_ENABLE([capplet],
-              [AC_HELP_STRING([--disable-capplet],
-                              [Disable control center capplet])],
+              [AC_HELP_STRING([--enable-capplet=@<:@no/yes@:>@],
+                              [Enable control center capplet default=no])],
               [],
-              [enable_capplet=yes])
+              [enable_capplet=no])
 
-if test "$enable_capplet" != "no"; then
-  PKG_CHECK_MODULES(CAPPLET,
-                    gconf-2.0
-                    gtk+-2.0 >= 2.14
-                    mx-gtk-1.0
-                    gmodule-export-2.0
-                    libgnome-control-center-extension
-                    clutter-gtk-0.12)
+AM_CONDITIONAL([ENABLE_CAPPLET], [test "x$enable_capplet" = "xyes"])
 
-  EXTENSIONDIR=$($PKG_CONFIG libgnome-control-center-extension --variable=extensiondir)
-  AC_SUBST(EXTENSIONDIR)
-fi
-AM_CONDITIONAL([HAVE_CAPPLET], [test "$enable_capplet" != "no"])
+AS_IF([test "x$enable_capplet" = "xyes"],
+       [PKG_CHECK_MODULES(CAPPLET,
+                         gconf-2.0
+                         gtk+-2.0 >= 2.14
+                         mx-gtk-1.0
+                         gmodule-export-2.0
+                         libgnome-control-center-extension
+                         clutter-gtk-0.12)
+       EXTENSIONDIR=$($PKG_CONFIG libgnome-control-center-extension --variable=extensiondir)
+       AC_SUBST(EXTENSIONDIR)],[])
+
+AM_CONDITIONAL([ENABLE_CAPPLET], [test "x$enable_capplet" = "xyes"])
 
 PKG_CHECK_MODULES(MPL, meego-panel >= 0.76.3)
 

@@ -1,7 +1,11 @@
 
 ACLOCAL_AMFLAGS = -I build
 
-SUBDIRS = build capplet src tests data po
+SUBDIRS = build src tests data po
+
+if ENABLE_CAPPLET
+SUBDIRS += capplet
+endif
 
 DISTCHECK_CONFIGURE_FLAGS = --disable-meego-desktop-file
 
