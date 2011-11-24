@@ -52,12 +52,12 @@ msgid "Applications panel"
 msgstr "Painel de aplicativos"
 
 #: ../capplet/src/app-cc-panel.c:83
-msgid "Use expanders"
-msgstr "Utilizar expansores"
+msgid "Use categories"
+msgstr "Utilizar categorias"
 
 #: ../capplet/src/app-cc-panel.c:109
-msgid "Enable/disable expanders in applications panel"
-msgstr "Habilita/desabilita expansores no painel de aplicativos"
+msgid "Enable/disable categories in applications panel"
+msgstr "Habilita/desabilita categorias no painel de aplicativos"
 
 #~ msgid "Search for applications"
 #~ msgstr "Pesquisar por aplicativos"

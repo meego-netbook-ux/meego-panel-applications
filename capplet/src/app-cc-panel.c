@@ -80,7 +80,7 @@ app_cc_panel_make_contents (AppCcPanel *panel)
 
 	txt = g_strdup_printf ("<span font_desc=\"Liberation Sans Bold\""
                            "foreground=\"#3e3e3e\">%s</span>",
-                           _("Use expanders"));
+                           _("Use categories"));
 
 	label = gtk_label_new (NULL);
 	gtk_label_set_markup (GTK_LABEL (label), txt);
@@ -106,7 +106,7 @@ app_cc_panel_make_contents (AppCcPanel *panel)
 	label = mux_label_new ();
 
 	mux_label_set_text (MUX_LABEL (label),
-                     _("Enable/disable expanders in applications panel."));
+                     _("Enable/disable categories in applications panel."));
 
 	gtk_widget_show (label);
 	gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
