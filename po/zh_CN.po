@@ -1,51 +1,61 @@
-# Chinese translations for mutter-meego package
-# mutter-meego 软件包的简体中文翻译.
-# Copyright Intel (C) 2009
-# This file is distributed under the same license as the mutter-meego package.
-# Li Jian <jian.li@turbolinux.com.cn>, 2009.
-# Zhu Yanhai <yanhai.zhu@linux.intel.com>, 2009
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <rjming@yahoo.com>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.27.6\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-19 16:47+0000\n"
-"PO-Revision-Date: 2010-10-19 11:22-0800\n"
-"Last-Translator: \n"
-"Language-Team: Chinese (simplified)\n"
+"Project-Id-Version: meego-panel-apps\n"
+"Report-Msgid-Bugs-To: https://bugs.meego.com/\n"
+"POT-Creation-Date: 2011-11-04 12:46+0000\n"
+"PO-Revision-Date: 2011-11-28 18:52+0000\n"
+"Last-Translator: GLS_Translator_CHS2 <rjming@yahoo.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.net/projects/p/meego/team/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
-#: ../src/mnb-filter.c:161
+#: ../src/mnb-filter.c:150
+msgid "Clear"
+msgstr "清除"
+
+#: ../src/mnb-filter.c:164
 msgid "Search"
 msgstr "搜索"
 
+#: ../src/meego-netbook-launcher.c:61
+msgid ""
+"To see your favourite applications here and on the myzone, hover your "
+"pointer over the application you want to add and select the pin in the top "
+"right."
+msgstr "要在这里及在 myzone 查看您喜爱的应用程序，将鼠标指针移至要添加的应用程序上，再选择右上角的图钉。"
+
 #. Panel label
-#: ../src/meego-netbook-launcher.c:1098
+#: ../src/meego-netbook-launcher.c:1089
 msgid "Applications"
 msgstr "应用程序"
 
-#.
 #. * Fav apps pane
-#.
-#: ../src/meego-netbook-launcher.c:1114
+#. 
+#: ../src/meego-netbook-launcher.c:1105
 msgid "Favorite applications"
 msgstr "收藏的应用程序"
 
-#.
 #. * Applications
-#.
-#: ../src/meego-netbook-launcher.c:1141
+#. 
+#: ../src/meego-netbook-launcher.c:1148
 msgid "Your applications"
 msgstr "您的应用程序"
 
-#: ../src/meego-panel-applications.c:247
+#: ../src/meego-panel-applications.c:258
 #: ../data/meego-panel-applications.desktop.in.in.h:2
 msgid "applications"
 msgstr "应用程序"
 
-#: ../src/mnb-launcher-button.c:635
+#: ../src/mnb-launcher-button.c:659
 msgid "Never launched"
 msgstr "从未启动"
 
@@ -53,6 +63,4 @@ msgstr "从未启动"
 msgid "Applications panel"
 msgstr "应用程序面板"
 
-#~ msgid "Search for applications"
-#~ msgstr "搜索应用程序"
 

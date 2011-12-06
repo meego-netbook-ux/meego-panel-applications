@@ -1,49 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: meego-panel-application\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-20 22:52+0000\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Gönczi Norbert <gonczinorbert@gmail.com>\n"
-"Language-Team: hungarian\n"
+"Project-Id-Version: meego-panel-apps\n"
+"Report-Msgid-Bugs-To: https://bugs.meego.com/\n"
+"POT-Creation-Date: 2011-11-04 12:46+0000\n"
+"PO-Revision-Date: 2011-11-03 18:59+0000\n"
+"Last-Translator: patrick <patrick.mccarty@linux.intel.com>\n"
+"Language-Team: Hungarian (http://www.transifex.net/projects/p/meego/team/hu/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Hungarian\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Country: HUNGARY\n"
+"Language: hu\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: ../src/mnb-filter.c:161
+#: ../src/mnb-filter.c:150
+msgid "Clear"
+msgstr ""
+
+#: ../src/mnb-filter.c:164
 msgid "Search"
 msgstr "Keresés"
 
+#: ../src/meego-netbook-launcher.c:61
+msgid ""
+"To see your favourite applications here and on the myzone, hover your "
+"pointer over the application you want to add and select the pin in the top "
+"right."
+msgstr ""
+
 #. Panel label
-#: ../src/meego-netbook-launcher.c:1098
+#: ../src/meego-netbook-launcher.c:1089
 msgid "Applications"
 msgstr "Alkalmazások"
 
 #. * Fav apps pane
 #. 
-#: ../src/meego-netbook-launcher.c:1114
+#: ../src/meego-netbook-launcher.c:1105
 msgid "Favorite applications"
 msgstr "Kedvencek alkalmazások"
 
 #. * Applications
 #. 
-#: ../src/meego-netbook-launcher.c:1141
+#: ../src/meego-netbook-launcher.c:1148
 msgid "Your applications"
 msgstr "Saját alkalmazások"
 
-#: ../src/meego-panel-applications.c:247
+#: ../src/meego-panel-applications.c:258
 #: ../data/meego-panel-applications.desktop.in.in.h:2
 msgid "applications"
 msgstr "alkalmazások"
 
-#: ../src/mnb-launcher-button.c:607
+#: ../src/mnb-launcher-button.c:659
 msgid "Never launched"
 msgstr "Sohasem volt elindítva"
 
 #: ../data/meego-panel-applications.desktop.in.in.h:1
 msgid "Applications panel"
 msgstr "Alkalmazások panel"
+
+

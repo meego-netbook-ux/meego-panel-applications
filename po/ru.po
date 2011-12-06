@@ -1,53 +1,63 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Alexander Mineev <alexander.g.mineev@intel.com>, 2009.
-#
+# 
+# Translators:
+#   <melentiev@gmail.com>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-19 16:47+0000\n"
-"PO-Revision-Date: 2010-10-19 19:52-0800\n"
-"Last-Translator: Bogdan Nosach <bogdan.nosach@ptiglobal.net>\n"
-"Language-Team: \n"
+"Project-Id-Version: meego-panel-apps\n"
+"Report-Msgid-Bugs-To: https://bugs.meego.com/\n"
+"POT-Creation-Date: 2011-11-04 12:46+0000\n"
+"PO-Revision-Date: 2011-11-29 13:42+0000\n"
+"Last-Translator: GLS_Translator_RUS2 <melentiev@gmail.com>\n"
+"Language-Team: Russian (http://www.transifex.net/projects/p/meego/team/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n!=1;\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Language: Russian\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
-#: ../src/mnb-filter.c:161
+#: ../src/mnb-filter.c:150
+msgid "Clear"
+msgstr "Очистить"
+
+#: ../src/mnb-filter.c:164
 msgid "Search"
 msgstr "Поиск"
 
+#: ../src/meego-netbook-launcher.c:61
+msgid ""
+"To see your favourite applications here and on the myzone, hover your "
+"pointer over the application you want to add and select the pin in the top "
+"right."
+msgstr ""
+"Для отображения избранных приложений здесь и в области myzone поместите "
+"указатель мыши над добавляемым приложением и выберите булавку вверху справа."
+
 #. Panel label
-#: ../src/meego-netbook-launcher.c:1098
+#: ../src/meego-netbook-launcher.c:1089
 msgid "Applications"
 msgstr "Приложения"
 
-#.
 #. * Fav apps pane
-#.
-#: ../src/meego-netbook-launcher.c:1114
+#. 
+#: ../src/meego-netbook-launcher.c:1105
 msgid "Favorite applications"
 msgstr "Избранные приложения"
 
-#.
 #. * Applications
-#.
-#: ../src/meego-netbook-launcher.c:1141
+#. 
+#: ../src/meego-netbook-launcher.c:1148
 msgid "Your applications"
 msgstr "Ваши приложения"
 
-#: ../src/meego-panel-applications.c:247
+#: ../src/meego-panel-applications.c:258
 #: ../data/meego-panel-applications.desktop.in.in.h:2
 msgid "applications"
 msgstr "приложения"
 
-# Could potentailly cause declension issues. Need to know the noun associated with this tring. What has never been launched? Program, function, component, etc.
-#: ../src/mnb-launcher-button.c:635
+#: ../src/mnb-launcher-button.c:659
 msgid "Never launched"
 msgstr "Никогда не запускалось"
 
@@ -55,5 +65,4 @@ msgstr "Никогда не запускалось"
 msgid "Applications panel"
 msgstr "Панель приложений"
 
-#~ msgid "Search for applications"
-#~ msgstr "Поиск приложений"
+

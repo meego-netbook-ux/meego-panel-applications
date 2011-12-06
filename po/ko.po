@@ -1,50 +1,62 @@
-#
-# Park Shinjo <peremen@gmail.com>, 2010.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <kushylee@yahoo.com>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-19 16:47+0000\n"
-"PO-Revision-Date: 2010-10-20 08:58-0800\n"
-"Last-Translator: Sun Kim <sunx.kim@intel.com>\n"
-"Language-Team: Korean <peremen@gmail.com>\n"
+"Project-Id-Version: meego-panel-apps\n"
+"Report-Msgid-Bugs-To: https://bugs.meego.com/\n"
+"POT-Creation-Date: 2011-11-04 12:46+0000\n"
+"PO-Revision-Date: 2011-11-29 16:50+0000\n"
+"Last-Translator: GLS_Translator_KOR1 <kushylee@yahoo.com>\n"
+"Language-Team: Korean (http://www.transifex.net/projects/p/meego/team/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n!=1;\n"
-"X-Poedit-Language: Korean\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Lokalize 1.0\n"
+"Language: ko\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
-#: ../src/mnb-filter.c:161
+#: ../src/mnb-filter.c:150
+msgid "Clear"
+msgstr "지우기"
+
+#: ../src/mnb-filter.c:164
 msgid "Search"
 msgstr "찾기"
 
+#: ../src/meego-netbook-launcher.c:61
+msgid ""
+"To see your favourite applications here and on the myzone, hover your "
+"pointer over the application you want to add and select the pin in the top "
+"right."
+msgstr ""
+"여기와 마이존에서 즐겨 사용하는 응용 프로그램을 보려면 추가하려는 응용 프로그램 위에 포인터를 대고 오른쪽 상단에 있는 핀을 선택합니다."
+
 #. Panel label
-#: ../src/meego-netbook-launcher.c:1098
+#: ../src/meego-netbook-launcher.c:1089
 msgid "Applications"
 msgstr "프로그램"
 
-#.
 #. * Fav apps pane
-#.
-#: ../src/meego-netbook-launcher.c:1114
+#. 
+#: ../src/meego-netbook-launcher.c:1105
 msgid "Favorite applications"
 msgstr "즐겨찾는 프로그램"
 
-#.
 #. * Applications
-#.
-#: ../src/meego-netbook-launcher.c:1141
+#. 
+#: ../src/meego-netbook-launcher.c:1148
 msgid "Your applications"
 msgstr "내 프로그램"
 
-#: ../src/meego-panel-applications.c:247
+#: ../src/meego-panel-applications.c:258
 #: ../data/meego-panel-applications.desktop.in.in.h:2
 msgid "applications"
 msgstr "프로그램"
 
-#: ../src/mnb-launcher-button.c:635
+#: ../src/mnb-launcher-button.c:659
 msgid "Never launched"
 msgstr "시작되지 않음"
 
@@ -52,5 +64,4 @@ msgstr "시작되지 않음"
 msgid "Applications panel"
 msgstr "프로그램 패널"
 
-#~ msgid "Search for applications"
-#~ msgstr "응용 프로그램 찾기"
+
